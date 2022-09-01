@@ -22,16 +22,28 @@ export default {
 		const pages = [
 			{
 				id: 0,
-				title: 'Главная',
+				title: 'Начало',
 				icon: 'mdi-home-roof',
 				url: '/',
 			},
 			{
 				id: 1,
-				title: 'Коды полномочий',
-				icon: 'mdi-book-open-page-variant-outline',
-				url: '/power',
+				title: 'Вариант 1',
+				icon: 'mdi-numeric-1-box',
+				url: '/var1',
 			},
+			{
+				id: 2,
+				title: 'Вариант 2',
+				icon: 'mdi-numeric-2-box',
+				url: '/var2',
+			},
+			// {
+			// 	id: 1,
+			// 	title: 'Коды полномочий',
+			// 	icon: 'mdi-book-open-page-variant-outline',
+			// 	url: '/power',
+			// },
 		]
 		const width = 256
 

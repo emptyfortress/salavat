@@ -34,8 +34,6 @@
 	p
 		br
 		router-link(to="/") Это пример линка, это пример линка, это пример линка.
-	p
-		q-toggle(v-model="dark" :color="colors.primary")
 
 	br
 	q-card.test
@@ -47,23 +45,12 @@
 
 </template>
 
-<script>
-// import { useCounter } from '@/stores/counter'
+<script setup lang="ts">
 import { useColor } from '@/stores/colors'
 import { ref } from 'vue'
 
-export default {
-	setup() {
-		const dark = ref(true)
-
-		const colors = useColor()
-
-		return {
-			colors,
-			dark,
-		}
-	},
-}
+const dark = ref(true)
+const colors = useColor()
 </script>
 
 <style scoped lang="scss">
