@@ -38,12 +38,6 @@ export default {
 				icon: 'mdi-numeric-2-box',
 				url: '/var2',
 			},
-			// {
-			// 	id: 1,
-			// 	title: 'Коды полномочий',
-			// 	icon: 'mdi-book-open-page-variant-outline',
-			// 	url: '/power',
-			// },
 		]
 		const width = 256
 

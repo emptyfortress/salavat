@@ -43,7 +43,7 @@ const formattedString = date.formatDate(timeStamp, 'dddd, D MMMM')
 
 <template lang="pug">
 #col(:class="mycolor")
-	q-layout(view="hHh lpR fFf")
+	q-layout(view="hHh LpR fFf")
 		q-header(:reveal="colors.reveal" :class="calcHeader")
 			q-toolbar
 				q-btn(dense flat round icon="mdi-menu" @click="toggleLeftDrawer")
@@ -66,17 +66,15 @@ const formattedString = date.formatDate(timeStamp, 'dddd, D MMMM')
 					q-btn(v-if="!colors.mini" dense flat round size="sm" icon="mdi-pin-off-outline")
 					q-btn(v-if="colors.mini" flat icon="mdi-reload").full-width
 				.right
-					q-btn(unelevated icon="mdi-plus" color="primary-darken-2") Создать
-					q-btn(unelevated)
-						SvgIcon(name="search-scan")
+					q-btn(unelevated icon="mdi-plus" color="primary-darken-2" label="Создать")
+					q-btn(unelevated icon="mdi-message-star-outline" label="Обратная связь")
 
 		Drawer(:show="leftDrawer" @toggle="toggleLeftDrawer")
 		RDrawer(:show="rightDrawer")
 
 		q-page-container
-			router-view
-			//- //- router-view(v-slot="{ Component, route }")
-				transition(name="fade")
+			router-view(v-slot="{ Component, route }")
+				transition(name="fade" mode="out-in")
 					component(:is="Component")
 
 		//- q-footer(bordered).head
