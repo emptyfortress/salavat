@@ -4,7 +4,7 @@ import Drawer from '@/components/Drawer.vue'
 import RDrawer from '@/components/RDrawer.vue'
 import { date } from 'quasar'
 import { useColor } from '@/stores/colors'
-import SvgIcon from '@/components/SvgIcon.vue'
+// import SvgIcon from '@/components/SvgIcon.vue'
 
 const leftDrawer = ref(true)
 const rightDrawer = ref(false)
@@ -38,7 +38,40 @@ const calcClass = computed(() => {
 })
 
 const timeStamp = Date.now()
-const formattedString = date.formatDate(timeStamp, 'dddd, D MMMM')
+const formattedString = ref(
+	date.formatDate(timeStamp, 'dddd, D MMMM', {
+		days: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+		daysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+		months: [
+			'января',
+			'февраля',
+			'марта',
+			'апреля',
+			'мая',
+			'июня',
+			'июля',
+			'августа',
+			'сентября',
+			'октября',
+			'ноября',
+			'декабря',
+		],
+		monthsShort: [
+			'янв',
+			'фев',
+			'мар',
+			'апр',
+			'май',
+			'июн',
+			'июл',
+			'авг',
+			'сен',
+			'окт',
+			'ноя',
+			'дек',
+		],
+	})
+)
 </script>
 
 <template lang="pug">

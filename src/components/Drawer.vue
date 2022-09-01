@@ -9,50 +9,40 @@ q-drawer(:model-value="show" side="left" :mini="colors.mini" :width="width" bord
 	q-btn(round flat dense :icon="minitoogle" @click="colors.mini = !colors.mini").mini.gt-sm
 </template>
 
-<script>
+<script setup lang="ts">
 import { computed } from 'vue'
 import { useColor } from '@/stores/colors'
 import SvgIcon from '@/components/SvgIcon.vue'
 
-export default {
-	props: ['show'],
-	components: { SvgIcon },
-	setup() {
-		const colors = useColor()
-		const pages = [
-			{
-				id: 0,
-				title: 'Начало',
-				icon: 'mdi-home-roof',
-				url: '/',
-			},
-			{
-				id: 1,
-				title: 'Вариант 1',
-				icon: 'mdi-numeric-1-box',
-				url: '/var1',
-			},
-			{
-				id: 2,
-				title: 'Вариант 2',
-				icon: 'mdi-numeric-2-box',
-				url: '/var2',
-			},
-		]
-		const width = 256
+const props = defineProps({
+	show: Boolean,
+})
+const colors = useColor()
 
-		const minitoogle = computed(() => {
-			return colors.mini ? 'mdi-forwardburger' : 'mdi-backburger'
-		})
-
-		return {
-			colors,
-			width,
-			pages,
-			minitoogle,
-		}
+const pages = [
+	{
+		id: 0,
+		title: 'Начало',
+		icon: 'mdi-home-roof',
+		url: '/',
 	},
-}
+	{
+		id: 1,
+		title: 'Вариант 1',
+		icon: 'mdi-numeric-1-box',
+		url: '/var1',
+	},
+	{
+		id: 2,
+		title: 'Вариант 2',
+		icon: 'mdi-numeric-2-box',
+		url: '/var2',
+	},
+]
+const width = 256
+const minitoogle = computed(() => {
+	return colors.mini ? 'mdi-forwardburger' : 'mdi-backburger'
+})
 </script>
 
 <style scoped lang="scss">
