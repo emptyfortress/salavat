@@ -7,6 +7,8 @@ export const useColor = defineStore({
 		panel: false,
 		reveal: false,
 		mini: false,
+		logo: true,
+		date: true,
 	}),
 	getters: {},
 	actions: {},

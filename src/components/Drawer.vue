@@ -12,7 +12,9 @@ q-drawer(:model-value="show" side="left" :mini="colors.mini" :width="width" bord
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useColor } from '@/stores/colors'
-import SvgIcon from '@/components/SvgIcon.vue'
+// import { useRoute } from '@/router/router'
+
+// import SvgIcon from '@/components/SvgIcon.vue'
 
 const props = defineProps({
 	show: Boolean,

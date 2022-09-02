@@ -56,20 +56,6 @@ const formattedString = ref(
 			'ноября',
 			'декабря',
 		],
-		monthsShort: [
-			'янв',
-			'фев',
-			'мар',
-			'апр',
-			'май',
-			'июн',
-			'июл',
-			'авг',
-			'сен',
-			'окт',
-			'ноя',
-			'дек',
-		],
 	})
 )
 </script>
@@ -132,9 +118,6 @@ const formattedString = ref(
 }
 
 .head {
-	/* backdrop-filter: blur(10px); */
-	/* -webkit-backdrop-filter: blur(10px); */
-	/* background-color: #0000001a; */
 	background-color: #d2d2d2;
 	color: var(--font-color);
 }
@@ -145,7 +128,6 @@ body.body--dark .head {
 	background: var(--bg-drawer);
 }
 .subbar {
-	background-color: #cccccc1c;
 	color: var(--font-color);
 	height: 36px;
 	display: flex;
@@ -153,7 +135,7 @@ body.body--dark .head {
 	.left,
 	.right {
 		padding: 0 0.5rem;
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+		box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
 	}
 	.left {
 		width: 256px;
