@@ -9,7 +9,16 @@ export const useColor = defineStore({
 		mini: false,
 		logo: true,
 		date: true,
+		leftDrawer: true,
+		rightDrawer: true,
 	}),
 	getters: {},
-	actions: {},
+	actions: {
+		toggleLeftDr() {
+			this.leftDrawer = !this.leftDrawer
+		},
+		toggleRightDr() {
+			this.rightDrawer = !this.rightDrawer
+		},
+	},
 })
