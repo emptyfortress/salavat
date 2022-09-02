@@ -26,8 +26,8 @@ export default {
 	},
 
 	setup(props) {
-		let patch = ref('#2196f3')
-		let patch1 = ref('#2196f3')
+		let patch = ref('#0079C2')
+		let patch1 = ref('#0079C2')
 
 		function RGBToHex(rgb) {
 			let sep = rgb.indexOf(',') > -1 ? ',' : ' '
@@ -86,7 +86,6 @@ export default {
 			s = +(s * 100).toFixed(1)
 			l = +(l * 100).toFixed(1)
 
-
 			// set lighten variables
 			let lighten1 = 'hsl(' + h + ',' + s + '%,' + (l + 10) + '%)'
 			let lighten2 = 'hsl(' + h + ',' + s + '%,' + (l + 20) + '%)'
@@ -98,8 +97,8 @@ export default {
 			document.body.style.setProperty('--q-primary-selection', selection)
 			// set darken variables
 			let darken1 = 'hsl(' + h + ',' + s + '%,' + (l - 9) + '%)'
-			let darken2 = 'hsl(' + h + ',' + s + '%,'  + (l - 15) + '%)'
-			let darken3 = 'hsl(' + h + ',' + s + '%,'   + (l - 23) + '%)'
+			let darken2 = 'hsl(' + h + ',' + s + '%,' + (l - 15) + '%)'
+			let darken3 = 'hsl(' + h + ',' + s + '%,' + (l - 23) + '%)'
 			document.body.style.setProperty('--q-primary-darken-1', darken1)
 			document.body.style.setProperty('--q-primary-darken-2', darken2)
 			document.body.style.setProperty('--q-primary-darken-3', darken3)

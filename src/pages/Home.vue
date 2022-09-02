@@ -1,14 +1,19 @@
 <template lang="pug">
-q-page(padding).flex.flex-center
+q-page(padding)
 	q-card.test
-		.text-h6 Панель
+		.text-h6
+			q-icon(name="mdi-information-outline" color="primary").q-mr-md
+			|Информация
+		ul
+			li Слева варианты дизайна
+			li По иконке справа вверху <q-icon name="mdi-brightness-4" /> открывается панель с настройками
+			li Можно настроить цвет, положение логотип, размер шрифта и тп
 </template>
 
 <script setup lang="ts">
-import { useColor } from '@/stores/colors'
 import { ref } from 'vue'
+import { useColor } from '@/stores/colors'
 
-const dark = ref(true)
 const colors = useColor()
 </script>
 
@@ -20,7 +25,10 @@ const colors = useColor()
 }
 .test {
 	width: 800px;
+	margin: 4rem auto;
 	padding: 1rem;
-	translate: 0 -200px;
+}
+ul {
+	font-size: 1rem;
 }
 </style>
