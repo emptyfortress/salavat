@@ -41,7 +41,12 @@ export const router = createRouter({
 		{
 			path: '/var2',
 			component: () => import('@/components/Var2.vue'),
-			meta: { transition: 'slide-left', title: 'КСЭД ГНС - Вариант 2', requiresAuth: false },
+			meta: {
+				transition: 'slide-left',
+				title: 'КСЭД ГНС - Вариант 2',
+				requiresAuth: false,
+				isColor: true,
+			},
 		},
 		{
 			path: '/:pathMatch(.*)*',
@@ -57,8 +62,14 @@ router.beforeEach((to) => {
 	if (to.meta.isColor === true) {
 		colors.panel = true
 		colors.toolbar = true
+		colors.logotop = true
+		colors.dv = true
+		colors.dv = true
 	} else {
 		colors.panel = false
 		colors.toolbar = false
+		colors.logotop = false
+		colors.dv = false
+		colors.dv = false
 	}
 })

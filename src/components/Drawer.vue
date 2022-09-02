@@ -7,6 +7,8 @@ q-drawer(:model-value="show" side="left" :mini="colors.mini" :width="width" bord
 			q-item-section {{ page.title }}
 
 	q-btn(round flat dense :icon="minitoogle" @click="colors.mini = !colors.mini").mini.gt-sm
+	img(src="@/assets/img/dv.svg" v-if="colors.dv && !colors.mini").dv
+	img(src="@/assets/img/logo-w.svg" v-if="colors.logobottom && !colors.mini").dv
 </template>
 
 <script setup lang="ts">
@@ -51,7 +53,7 @@ const minitoogle = computed(() => {
 @import '@/assets/styles/theme.scss';
 .mini {
 	position: absolute;
-	bottom: 1rem;
+	bottom: 0.5rem;
 	left: 0.5rem;
 	overflow-x: hidden;
 }
@@ -78,5 +80,11 @@ const minitoogle = computed(() => {
 .q-item.q-router-link--active {
 	background: var(--q-selection);
 	color: var(--q-primary-darken-2);
+}
+.dv {
+	position: absolute;
+	bottom: 20px;
+	left: 5rem;
+	width: 100px;
 }
 </style>

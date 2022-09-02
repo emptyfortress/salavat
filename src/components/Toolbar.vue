@@ -1,9 +1,12 @@
 <template lang="pug">
-q-toolbar
+.mytoolbar
 	q-btn(dense flat round icon="mdi-menu" @click="colors.toggleLeftDr")
-
-	q-toolbar-title.gt-sm
-		span {{ formattedString }}
+	q-img(v-if="colors.toolbar && colors.logoleft" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain").q-ml-md
+	.tityl
+		span(v-if="colors.date") {{ formattedString }}
+		span(v-if="colors.sed") КСЭД ГНС
+	q-space
+	q-img(v-if="colors.toolbar && colors.logotop" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain")
 	q-space
 	q-btn(dense flat round icon="mdi-magnify")
 	q-btn(dense round unelevated color="light-blue-2").q-ml-sm
@@ -20,7 +23,7 @@ q-toolbar
 		q-btn(v-if="!colors.mini" dense flat round size="sm" icon="mdi-pin-off-outline")
 		q-btn(v-if="colors.mini" flat icon="mdi-reload").full-width
 	.right
-		q-btn(unelevated icon="mdi-plus" color="primary-darken-2" label="Создать")
+		q-btn(unelevated icon="mdi-plus" color="primary-darken-3" label="Создать")
 		q-btn(unelevated icon="mdi-message-star-outline" label="Обратная связь")
 </template>
 
@@ -65,6 +68,20 @@ const calcClass = computed(() => {
 
 <style scoped lang="scss">
 //@import '@/assets/css/colors.scss';
+.mytoolbar {
+	padding: 0 1rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 64px;
+	line-height: 64px;
+}
+.tityl {
+	font-size: 1.5rem;
+	span {
+		margin-left: 1rem;
+	}
+}
 .subbar {
 	color: var(--font-color);
 	height: 36px;
@@ -101,12 +118,12 @@ const calcClass = computed(() => {
 }
 .mybadge {
 	position: absolute;
-	width: 10px;
-	height: 10px;
+	width: 12px;
+	height: 12px;
 	border-radius: 50%;
-	left: -3px;
-	bottom: -2px;
+	left: -4px;
+	bottom: 0px;
 	background: green;
-	border: 1px solid #fff;
+	border: 1.5px solid #fff;
 }
 </style>

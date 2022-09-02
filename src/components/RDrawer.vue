@@ -8,15 +8,30 @@ q-drawer(v-model="show" side="right" bordered)
 			q-slider(v-model="size" :min="11" :max="18" label color="primary" @change="setSize")
 	q-separator
 	q-item
-		q-toggle( v-model="color.toolbar" label="Color header" color="primary")
+		q-toggle(dense v-model="color.toolbar" label="Color header" color="primary")
 	q-item
-		q-toggle( v-model="color.panel" label="Color panel" color="primary")
+		q-toggle(dense v-model="color.panel" label="Color panel" color="primary")
 	q-item
-		q-toggle( v-model="color.reveal" label="Auto-hide header" color="primary")
+		q-toggle(dense v-model="color.reveal" label="Auto-hide header" color="primary")
 
 	q-separator
 	q-item
-		q-toggle( v-model="dark" label="Темная тема" color="primary")
+		q-toggle(dense v-model="dark" label="Темная тема" color="primary")
+
+	q-separator
+	q-item
+		q-toggle(dense v-model="color.logotop" label="Газпром center" color="primary")
+	q-item
+		q-toggle(dense v-model="color.logoleft" label="Газпром side" color="primary")
+	q-item
+		q-toggle(dense v-model="color.logobottom" label="Газпром bottom" color="primary")
+	q-item
+		q-toggle(dense v-model="color.date" label="Дата" color="primary")
+	q-item
+		q-toggle(dense v-model="color.sed" label="Титул" color="primary")
+	q-item
+		q-toggle(dense v-model="color.dv" label="DV" color="primary")
+
 
 </template>
 
@@ -28,7 +43,7 @@ import Color from '@/components/Color.vue'
 
 export default {
 	props: ['show'],
-	components: { Color, },
+	components: { Color },
 	setup(props) {
 		const dark = ref(false)
 		const toolbar = ref(false)

@@ -445,14 +445,3 @@ a:hover:not(.q-link) {
 .tree .q-tree__node--selected.q-tree__node-header:hover {
 	background: var(--q-primary-selection);
 }
-
-.titl {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	height: 64px;
-	padding-left: 1rem;
-}
-.logo {
-	height: 48px;
-}
