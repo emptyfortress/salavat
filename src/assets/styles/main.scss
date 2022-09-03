@@ -48,10 +48,13 @@ a:hover:not(.q-link) {
 	border-spacing: 1px;
 	color: var(--text-color);
 	thead {
-		background-color: #0000001a;
+		// background-color: #0000001a;
 	}
 	thead tr {
 		height: 32px !important;
+	}
+	th:not(:last-child) {
+		border-right: 1px solid var(--my-border-color);
 	}
 }
 .q-table tbody tr.both td::after {
@@ -444,4 +447,16 @@ a:hover:not(.q-link) {
 }
 .tree .q-tree__node--selected.q-tree__node-header:hover {
 	background: var(--q-primary-selection);
+}
+
+.link {
+	color: var(--q-link);
+	cursor: pointer;
+}
+td.el {
+	max-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 90%;
 }

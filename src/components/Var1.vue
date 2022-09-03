@@ -45,17 +45,25 @@ q-page(padding)
 			q-card(flat).six
 				.hd ОРД
 				q-list.q-mt-sm
-					q-item(dense clickable v-for="item in outdoc" :key="item.id")
+					q-item(dense clickable v-for="item in ord" :key="item.id")
 						q-item-section
 							q-label {{item.label}}
 						q-item-section(side v-if="item.badge")
 							q-badge(color="primary" rounded outline ) {{item.badge}}
+			.last
+				.hd Последние карточки
+				component(:is="LastCards")
+			.star
+				.hd
+					q-icon(name="mdi-star" color="warning")
+					|Избранное
+				component(:is="Starred")
 </template>
 
 <script setup lang="ts">
-import { useColor } from '@/stores/colors'
-import { ref } from 'vue'
-import { inbox, outbox, mydoc, indoc, outdoc } from '@/stores/data'
+import { inbox, outbox, mydoc, indoc, outdoc, ord } from '@/stores/data'
+import LastCards from '@/components/LastCards.vue'
+import Starred from '@/components/Starred.vue'
 </script>
 
 <style scoped lang="scss">
@@ -86,10 +94,30 @@ import { inbox, outbox, mydoc, indoc, outdoc } from '@/stores/data'
 		grid-column: 10/13;
 	}
 }
+.last {
+	margin-top: 1rem;
+	grid-column: 1/7;
+	.hd {
+		cursor: pointer;
+		color: var(--q-link);
+	}
+}
 .hd {
 	font-size: 1rem;
 }
 q-label {
 	color: var(--q-link);
+}
+.star {
+	margin-top: 1rem;
+	grid-column: 7/13;
+	.q-icon {
+		margin-right: 0.5rem;
+		margin-top: -2px;
+	}
+	.hd {
+		cursor: pointer;
+		color: var(--q-link);
+	}
 }
 </style>

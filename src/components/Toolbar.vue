@@ -6,7 +6,7 @@
 		span(v-if="colors.date") {{ formattedString }}
 		span(v-if="colors.sed") КСЭД ГНС
 	q-space
-	q-img(v-if="colors.toolbar && colors.logotop" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain")
+	q-img(v-if="colors.toolbar && colors.logotop" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain").gt-sm
 	q-space
 	q-btn(dense flat round icon="mdi-magnify")
 	q-btn(dense round unelevated color="light-blue-2").q-ml-sm
