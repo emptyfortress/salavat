@@ -4,7 +4,7 @@ import { useColor } from '@/stores/colors'
 const colors = useColor()
 const router = useRouter()
 
-go = (e: string) => {
+const go = (e: string) => {
 	// console.log(e)
 	colors.setZag(e)
 	router.push('/away')

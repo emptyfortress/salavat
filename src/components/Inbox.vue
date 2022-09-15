@@ -30,8 +30,9 @@ import { rows } from '@/stores/data'
 import { useRouter } from 'vue-router'
 import { useColor } from '@/stores/colors'
 
+const items = reactive(rows)
 const readAll = () => {
-	items = items.map((item) => (item.unread = !item.unread))
+	return items.map((item) => (item.unread = !item.unread))
 }
 
 const colors = useColor()
@@ -40,7 +41,6 @@ const go = (e: string) => {
 	colors.setZag(e)
 	router.push('/away')
 }
-let items = reactive(rows)
 
 const cols: MyColumn[] = [
 	{
