@@ -21,7 +21,7 @@ export const router = createRouter({
 			path: '/',
 			component: Home,
 			meta: {
-				transition: 'slide-left',
+				// transition: 'slide-left',
 				title: 'КСЭД ГНС - Главная',
 				requiresAuth: false,
 			},
@@ -30,7 +30,7 @@ export const router = createRouter({
 			path: '/var1',
 			component: () => import('@/components/Var1.vue'),
 			meta: {
-				transition: 'slide-left',
+				// transition: 'slide-left',
 				title: 'КСЭД ГНС - Вариант 1',
 				requiresAuth: false,
 				isColor: true,
@@ -39,6 +39,17 @@ export const router = createRouter({
 		{
 			path: '/var2',
 			component: () => import('@/components/Var2.vue'),
+			meta: {
+				// transition: 'slide-left',
+				title: 'КСЭД ГНС - Вариант 2',
+				requiresAuth: false,
+				isColor: true,
+			},
+		},
+		{
+			path: '/away',
+			component: () => import('@/components/Away.vue'),
+			props: { zag: 'test' },
 			meta: {
 				transition: 'slide-left',
 				title: 'КСЭД ГНС - Вариант 2',
@@ -62,12 +73,14 @@ router.beforeEach((to) => {
 		colors.toolbar = true
 		colors.logotop = true
 		colors.dv = true
-		colors.dv = true
+		colors.date = false
+		colors.sed = true
 	} else {
 		colors.panel = false
 		colors.toolbar = false
 		colors.logotop = false
 		colors.dv = false
-		colors.dv = false
+		colors.date = true
+		colors.sed = false
 	}
 })

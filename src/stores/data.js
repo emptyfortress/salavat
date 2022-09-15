@@ -7,19 +7,19 @@ const inbox = [
 ]
 
 const outbox = [
-	{ id: 0, label: 'Исходящие' },
+	{ id: 0, label: 'Исходящие', badge: undefined },
 	{ id: 1, label: 'Делегировано' },
 	{ id: 2, label: 'Завершено' },
 ]
 
 const mydoc = [
-	{ id: 0, label: 'Я создал' },
+	{ id: 0, label: 'Я создал', badge: undefined },
 	{ id: 1, label: 'Я готовил' },
 	{ id: 2, label: 'Поиск документов' },
 ]
 
 const indoc = [
-	{ id: 0, label: 'Входящие документы' },
+	{ id: 0, label: 'Входящие документы', badge: undefined },
 	{ id: 1, label: 'На регистрацию' },
 	{ id: 2, label: 'Не отправленные на рассмотрение' },
 	{ id: 3, label: 'На рассмотрении' },
@@ -30,16 +30,67 @@ const indoc = [
 ]
 
 const outdoc = [
-	{ id: 0, label: 'Исходящие документы' },
+	{ id: 0, label: 'Исходящие документы', badge: undefined },
 	{ id: 1, label: 'На регистрацию' },
 	{ id: 2, label: 'Поиск входящих документов' },
 ]
 const ord = [
-	{ id: 0, label: 'На проверку' },
+	{ id: 0, label: 'На проверку', badge: undefined },
 	{ id: 1, label: 'Документы на согласовании' },
 	{ id: 2, label: 'Документы на подписании' },
 	{ id: 3, label: 'Действующие' },
 	{ id: 4, label: 'На регистрацию' },
 ]
 
-export { inbox, outbox, mydoc, indoc, outdoc, ord }
+const rows = [
+	{
+		id: 0,
+		name: 'ОРД Тема',
+		changed: '31.08.2022 10:22',
+		type: 'На ознакомление',
+		author: 'Орлов П.',
+		unread: true,
+	},
+	{
+		id: 1,
+		name: 'Задание на проверку',
+		changed: '30.08.2022 12:22',
+		type: 'На ознакомление',
+		author: 'Уткина Г.',
+		unread: true,
+	},
+	{
+		id: 2,
+		name: 'ОРД Тестирование приказов по ОД',
+		changed: '29.08.2022 14:12',
+		type: 'На ознакомление',
+		author: 'Соловьев С.',
+		unread: true,
+	},
+	{
+		id: 3,
+		name: 'ОРД О проведении опытной эксплуатации в системе Docsvision 5.5 АХУ',
+		changed: '29.08.2022 12:50',
+		type: 'На ознакомление',
+		author: 'Воробьева А.',
+		unread: true,
+	},
+	{
+		id: 4,
+		name: 'Приказ по филиалу № 223-5',
+		changed: '28.08.2022 14:12',
+		type: 'На исполнение',
+		author: 'Гусев И.',
+		unread: true,
+	},
+	{
+		id: 5,
+		name: 'Заказ канцелярии на 3 кв.',
+		changed: '28.08.2022 12:19',
+		type: 'На согласование',
+		author: 'Гусев И.',
+		unread: true,
+	},
+]
+
+export { inbox, outbox, mydoc, indoc, outdoc, ord, rows }

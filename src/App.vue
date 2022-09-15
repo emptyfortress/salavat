@@ -28,7 +28,7 @@ const calcHeader = computed(() => {
 
 		q-page-container
 			router-view(v-slot="{ Component, route }")
-				transition(name="fade" mode="out-in")
+				transition(:name="route.meta.transition || 'fade'" mode="out-in")
 					component(:is="Component")
 
 </template>

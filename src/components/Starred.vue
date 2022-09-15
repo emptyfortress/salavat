@@ -6,7 +6,7 @@ q-table(
 	flat
 	hide-bottom).table
 	template(v-slot:body="props")
-		q-tr(:props="props")
+		q-tr(:props="props" @click="go(props.row.name)")
 			q-td(key="name" :props="props").el
 				q-icon(name="mdi-star" color="warning").q-mr-sm
 				span.link.ellipsis {{ props.row.name}}
@@ -15,6 +15,17 @@ q-table(
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { useColor } from '@/stores/colors'
+
+const colors = useColor()
+const router = useRouter()
+
+const go = (e: string) => {
+	colors.setZag(e)
+	router.push('/away')
+}
+
 const col: MyColumn[] = [
 	{ name: 'name', label: 'Название', field: 'name', align: 'left', sortable: true },
 	{ name: 'typ', label: 'Тип', field: 'typ', align: 'left', sortable: true },

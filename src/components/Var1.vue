@@ -5,7 +5,7 @@ q-page(padding)
 			q-card(flat).one
 				.hd Входящие задания
 				q-list.q-mt-sm
-					q-item(dense clickable v-for="item in inbox" :key="item.id")
+					q-item(dense clickable v-for="item in inbox" :key="item.id" @click="go(item.label)")
 						q-item-section
 							q-label {{item.label}}
 						q-item-section(side v-if="item.badge")
@@ -13,7 +13,7 @@ q-page(padding)
 			q-card(flat).two
 				.hd Исходящие задания
 				q-list.q-mt-sm
-					q-item(dense clickable v-for="item in outbox" :key="item.id")
+					q-item(dense clickable v-for="item in outbox" :key="item.id" @click="go(item.label)")
 						q-item-section
 							q-label {{item.label}}
 						q-item-section(side v-if="item.badge")
@@ -21,7 +21,7 @@ q-page(padding)
 			q-card(flat).three
 				.hd Мои документы
 				q-list.q-mt-sm
-					q-item(dense clickable v-for="item in mydoc" :key="item.id")
+					q-item(dense clickable v-for="item in mydoc" :key="item.id" @click="go(item.label)")
 						q-item-section
 							q-label {{item.label}}
 						q-item-section(side v-if="item.badge")
@@ -29,7 +29,7 @@ q-page(padding)
 			q-card(flat).four
 				.hd Входящие документы
 				q-list(style="columns: 2").q-mt-sm
-					q-item(dense clickable v-for="item in indoc" :key="item.id")
+					q-item(dense clickable v-for="item in indoc" :key="item.id" @click="go(item.label)")
 						q-item-section
 							q-label {{item.label}}
 						q-item-section(side v-if="item.badge")
@@ -37,7 +37,7 @@ q-page(padding)
 			q-card(flat).five
 				.hd Исходящие документы
 				q-list.q-mt-sm
-					q-item(dense clickable v-for="item in outdoc" :key="item.id")
+					q-item(dense clickable v-for="item in outdoc" :key="item.id" @click="go(item.label)")
 						q-item-section
 							q-label {{item.label}}
 						q-item-section(side v-if="item.badge")
@@ -45,16 +45,16 @@ q-page(padding)
 			q-card(flat).six
 				.hd ОРД
 				q-list.q-mt-sm
-					q-item(dense clickable v-for="item in ord" :key="item.id")
+					q-item(dense clickable v-for="item in ord" :key="item.id" @click="go(item.label)")
 						q-item-section
 							q-label {{item.label}}
 						q-item-section(side v-if="item.badge")
 							q-badge(color="primary" rounded outline ) {{item.badge}}
 			.last
-				.hd Последние карточки
+				.hd.cursor-pointer(@click="go('Последние карточки')") Последние карточки
 				component(:is="LastCards")
 			.star
-				.hd
+				.hd.cursor-pointer(@click="go('Избранное')")
 					q-icon(name="mdi-star" color="warning")
 					|Избранное
 				component(:is="Starred")
@@ -64,6 +64,16 @@ q-page(padding)
 import { inbox, outbox, mydoc, indoc, outdoc, ord } from '@/stores/data'
 import LastCards from '@/components/LastCards.vue'
 import Starred from '@/components/Starred.vue'
+import { useRouter } from 'vue-router'
+import { useColor } from '@/stores/colors'
+
+const colors = useColor()
+const router = useRouter()
+
+const go = (e: string) => {
+	colors.setZag(e)
+	router.push('/away')
+}
 </script>
 
 <style scoped lang="scss">

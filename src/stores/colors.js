@@ -15,6 +15,7 @@ export const useColor = defineStore({
 		sed: false,
 		leftDrawer: true,
 		rightDrawer: false,
+		zag: 'Назад',
 	}),
 	getters: {},
 	actions: {
@@ -23,6 +24,9 @@ export const useColor = defineStore({
 		},
 		toggleRightDr() {
 			this.rightDrawer = !this.rightDrawer
+		},
+		setZag(payload) {
+			this.zag = payload
 		},
 	},
 })
