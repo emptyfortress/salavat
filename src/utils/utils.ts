@@ -1,16 +1,16 @@
-// import { useRouter } from 'vue-router'
-// import { useColor } from '@/stores/colors'
+import { useRouter } from 'vue-router'
+import { useColor } from '@/stores/colors'
 
-// const colors = useColor()
-// const router = useRouter()
+const colors = useColor()
+const router = useRouter()
 
-// go = (e: string) => {
-// 	// console.log(e)
-// 	colors.setZag(e)
-// 	router.push('/away')
-// }
+go = (e: string) => {
+	// console.log(e)
+	colors.setZag(e)
+	router.push('/away')
+}
 
-// export { go }
+export { go }
 
 // const randomArray = (length: number, min: number, max: number) => {
 // 	let result = []
