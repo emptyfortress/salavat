@@ -4,7 +4,7 @@
 	q-img(v-if="colors.toolbar && colors.logoleft" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain").q-ml-md
 	.tityl
 		span(v-if="colors.date") {{ formattedString }}
-		span(v-if="colors.sed") КСЭД ГНС
+		span(v-if="colors.sed") КСЭД
 	q-space
 	q-img(v-if="colors.toolbar && colors.logotop" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain").gt-sm
 	q-space

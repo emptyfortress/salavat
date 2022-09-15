@@ -25,7 +25,7 @@ q-table(
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 import { rows } from '@/stores/data'
 import { useRouter } from 'vue-router'
 import { useColor } from '@/stores/colors'

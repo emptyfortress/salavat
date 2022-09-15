@@ -39,7 +39,7 @@ q-page(padding)
 								q-label {{item.label}}
 							q-item-section(side v-if="item.badge")
 								q-badge(color="primary" rounded outline ) {{item.badge}}
-						q-separator
+						q-separator(color="primary").q-my-sm
 						q-item(dense clickable)
 							q-item-section
 								q-label Я - автор
