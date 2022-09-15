@@ -10,12 +10,12 @@ q-table(
 
 	template(v-slot:header="props")
 		q-tr(:props="props")
-			q-th(@click="readAll").small
+			q-th.small
 			q-th(v-for="col in props.cols" :props="props" :key="col.name") {{col.label}}
 
 	template(v-slot:body="props")
 		q-tr(:props="props" @click="go(props.row.name)")
-			q-td(:class="{ unread : props.row.unread === true}" @click.stop="props.row.unread = !props.row.unread").small
+			q-td(:class="{ unread : props.row.unread === true}").small
 			q-td(key="name" :props="props").el
 				.link.ellipsis {{ props.row.name }}
 			q-td(key="type" :props="props") {{ props.row.type }}
@@ -30,9 +30,10 @@ import { rows } from '@/stores/data'
 import { useRouter } from 'vue-router'
 import { useColor } from '@/stores/colors'
 
-const readAll = () => {
-	items = items.map((item) => (item.unread = !item.unread))
-}
+let items = reactive(rows)
+// const readAll = () => {
+// 	items = items.map((item) => (item.unread = !item.unread))
+// }
 
 const colors = useColor()
 const router = useRouter()
@@ -40,7 +41,6 @@ const go = (e: string) => {
 	colors.setZag(e)
 	router.push('/away')
 }
-let items = reactive(rows)
 
 const cols: MyColumn[] = [
 	{
