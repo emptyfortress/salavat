@@ -1,12 +1,12 @@
 <template lang="pug">
 .mytoolbar
 	q-btn(dense flat round icon="mdi-menu" @click="colors.toggleLeftDr")
-	q-img(v-if="colors.toolbar && colors.logoleft" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain").q-ml-md
-	.tityl
+	q-img(v-if="colors.toolbar && colors.logoleft" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain" @click="$router.back()").q-ml-md.cursor-pointer
+	.tityl(@click="$router.back()")
 		span(v-if="colors.date") {{ formattedString }}
 		span(v-if="colors.sed") КСЭД
 	q-space
-	q-img(v-if="colors.toolbar && colors.logotop" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain").gt-sm
+	q-img(v-if="colors.toolbar && colors.logotop" src="@/assets/img/logo-w.svg" height="48px" width="90px" fit="contain" @click="$router.back()").gt-sm.cursor-pointer
 	q-space
 	q-btn(dense flat round icon="mdi-magnify")
 	q-btn(dense round unelevated color="light-blue-2").q-ml-sm
@@ -78,6 +78,7 @@ const calcClass = computed(() => {
 }
 .tityl {
 	font-size: 1.5rem;
+	cursor: pointer;
 	span {
 		margin-left: 1rem;
 	}
