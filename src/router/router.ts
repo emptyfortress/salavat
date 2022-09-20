@@ -7,6 +7,7 @@ declare module 'vue-router' {
 		// is optional
 		isAdmin?: boolean
 		isColor?: boolean
+		isRainbow?: boolean
 		// must be declared by every route
 		requiresAuth: boolean
 		title: string
@@ -21,7 +22,6 @@ export const router = createRouter({
 			path: '/',
 			component: Home,
 			meta: {
-				// transition: 'slide-left',
 				title: 'КСЭД ГНС - Главная',
 				requiresAuth: false,
 			},
@@ -30,20 +30,40 @@ export const router = createRouter({
 			path: '/var1',
 			component: () => import('@/components/Var1.vue'),
 			meta: {
-				// transition: 'slide-left',
 				title: 'КСЭД ГНС - Вариант 1',
 				requiresAuth: false,
 				isColor: true,
+				isRainbow: false,
+			},
+		},
+		{
+			path: '/var11',
+			component: () => import('@/components/Var11.vue'),
+			meta: {
+				title: 'КСЭД ГНС - Вариант 1-1',
+				requiresAuth: false,
+				isColor: true,
+				isRainbow: false,
 			},
 		},
 		{
 			path: '/var2',
 			component: () => import('@/components/Var2.vue'),
 			meta: {
-				// transition: 'slide-left',
 				title: 'КСЭД ГНС - Вариант 2',
 				requiresAuth: false,
 				isColor: true,
+				isRainbow: false,
+			},
+		},
+		{
+			path: '/var3',
+			component: () => import('@/components/Var3.vue'),
+			meta: {
+				title: 'КСЭД ГНС - Вариант 3',
+				requiresAuth: false,
+				isColor: true,
+				isRainbow: true,
 			},
 		},
 		{
@@ -52,14 +72,39 @@ export const router = createRouter({
 			props: { zag: 'test' },
 			meta: {
 				transition: 'slide-left',
-				title: 'КСЭД ГНС - Вариант 2',
+				title: 'КСЭД',
 				requiresAuth: false,
 				isColor: true,
+				isRainbow: false,
+			},
+		},
+		{
+			path: '/doc',
+			component: () => import('@/components/Doc.vue'),
+			props: { zag: 'test' },
+			meta: {
+				transition: 'slide-left',
+				title: 'КСЭД ГНС - Документы',
+				requiresAuth: false,
+				isColor: true,
+				isRainbow: true,
+			},
+		},
+		{
+			path: '/task',
+			component: () => import('@/components/Task.vue'),
+			props: { zag: 'test' },
+			meta: {
+				transition: 'slide-left',
+				title: 'КСЭД ГНС - Задания',
+				requiresAuth: false,
+				isColor: true,
+				isRainbow: true,
 			},
 		},
 		{
 			path: '/:pathMatch(.*)*',
-			redirect: '/power',
+			redirect: '/',
 		},
 	],
 })
@@ -68,7 +113,14 @@ const DEFAULT_TITLE = 'DV Web-Client'
 router.beforeEach((to) => {
 	document.title = to.meta.title || DEFAULT_TITLE
 	const colors = useColor()
-	if (to.meta.isColor === true) {
+	if (to.meta.isColor === true && to.meta.isRainbow === true) {
+		colors.panel = true
+		colors.toolbar = true
+		colors.logotop = false
+		colors.dv = true
+		colors.date = false
+		colors.sed = true
+	} else if (to.meta.isColor === true && to.meta.isRainbow === false) {
 		colors.panel = true
 		colors.toolbar = true
 		colors.logotop = true

@@ -11,14 +11,12 @@ q-drawer(v-model="show" side="right" bordered)
 		q-toggle(dense v-model="color.toolbar" label="Color header" color="primary")
 	q-item
 		q-toggle(dense v-model="color.panel" label="Color panel" color="primary")
-	q-item
-		q-toggle(dense v-model="color.reveal" label="Auto-hide header" color="primary")
 
 	q-separator
-	q-item
-		q-toggle(dense v-model="dark" label="Темная тема" color="primary")
+	//- q-item
+	//- 	q-toggle(dense v-model="dark" label="Темная тема" color="primary")
 
-	q-separator
+	//- q-separator
 	q-item
 		q-toggle(dense v-model="color.logotop" label="Газпром center" color="primary")
 	q-item

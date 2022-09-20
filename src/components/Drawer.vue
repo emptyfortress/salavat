@@ -7,16 +7,14 @@ q-drawer(:model-value="show" side="left" :mini="colors.mini" :width="width" bord
 			q-item-section {{ page.title }}
 
 	q-btn(round flat dense :icon="minitoogle" @click="colors.mini = !colors.mini").mini.gt-sm
-	img(src="@/assets/img/dv.svg" v-if="colors.dv && !colors.mini").dv
-	img(src="@/assets/img/logo-w.svg" v-if="colors.logobottom && !colors.mini").dv
+	.bot
+		img(src="@/assets/img/logo-w.svg" v-if="colors.logobottom && !colors.mini").sal
+		img(src="@/assets/img/dv.svg" v-if="colors.dv && !colors.mini").dv
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useColor } from '@/stores/colors'
-// import { useRoute } from '@/router/router'
-
-// import SvgIcon from '@/components/SvgIcon.vue'
 
 const props = defineProps({
 	show: Boolean,
@@ -37,10 +35,22 @@ const pages = [
 		url: '/var1',
 	},
 	{
+		id: 4,
+		title: 'Вариант 1-1',
+		icon: 'mdi-numeric-1-box',
+		url: '/var11',
+	},
+	{
 		id: 2,
 		title: 'Вариант 2',
 		icon: 'mdi-numeric-2-box',
 		url: '/var2',
+	},
+	{
+		id: 3,
+		title: 'Светофор',
+		icon: 'mdi-numeric-3-box',
+		url: '/var3',
 	},
 ]
 const width = 256
@@ -78,13 +88,16 @@ const minitoogle = computed(() => {
 }
 .q-item--active,
 .q-item.q-router-link--active {
-	background: var(--q-selection);
-	color: var(--q-primary-darken-2);
+	background: rgba(0, 0, 0, 0.15);
+	// background: var(--q-selection);
+	// color: var(--q-primary-darken-2);
 }
-.dv {
+.bot {
 	position: absolute;
-	bottom: 20px;
+	bottom: 10px;
 	left: 5rem;
-	width: 100px;
+	> img {
+		width: 100px;
+	}
 }
 </style>

@@ -4,11 +4,21 @@ import Drawer from '@/components/Drawer.vue'
 import RDrawer from '@/components/RDrawer.vue'
 import { useColor } from '@/stores/colors'
 import Toolbar from '@/components/Toolbar.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const colors = useColor()
 
 const mycolor = computed(() => {
+	if (route.fullPath === '/var3') {
+		return 'dark'
+	} else if (route.fullPath == '/task') {
+		return 'task'
+	} else if (route.fullPath == '/doc') {
+		return 'doc'
+	}
 	return 'one'
 })
-const colors = useColor()
 
 const calcHeader = computed(() => {
 	if (colors.toolbar) {

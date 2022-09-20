@@ -23,16 +23,36 @@
 		q-btn(v-if="!colors.mini" dense flat round size="sm" icon="mdi-pin-off-outline")
 		q-btn(v-if="colors.mini" flat icon="mdi-reload").full-width
 	.right
-		q-btn(unelevated icon="mdi-plus" color="primary-darken-3" label="Создать")
+		q-btn(unelevated icon="mdi-plus" :class="calcColor" label="Создать")
 		q-btn(unelevated icon="mdi-message-star-outline" label="Обратная связь")
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useColor } from '@/stores/colors'
+import { useRoute } from 'vue-router'
 import { date } from 'quasar'
 
 const colors = useColor()
+const route = useRoute()
+
+const calcColor = computed(() => {
+	if (route.fullPath === '/away') {
+		return 'var'
+	}
+	if (route.fullPath === '/task') {
+		return 'taskd'
+	}
+	if (route.fullPath === '/doc') {
+		return 'docd'
+	}
+	if (route.fullPath === '/var3') {
+		return 'dar'
+	}
+	if (route.fullPath === '/var1' || route.fullPath === '/var2' || route.fullPath === '/var11') {
+		return 'var'
+	} else return 'start'
+})
 
 const timeStamp = Date.now()
 const formattedString = ref(

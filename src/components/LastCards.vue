@@ -9,21 +9,25 @@ q-table(
 		q-tr(:props="props" @click="go(props.row.name)")
 			q-td(key="name" :props="props").el
 				.link.ellipsis {{ props.row.name }}
+			q-td(key="created" :props="props") {{ props.row.created }}
 			q-td(key="changed" :props="props") {{ props.row.changed }}
 
 </template>
 
 <script setup lang="ts">
 import { rows } from '@/stores/data'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useColor } from '@/stores/colors'
 
 const colors = useColor()
 const router = useRouter()
+const route = useRoute()
 
 const go = (e: string) => {
 	colors.setZag(e)
-	router.push('/away')
+	if (route.fullPath === '/var3') {
+		router.push('/doc')
+	} else router.push('/away')
 }
 
 const col: MyColumn[] = [
@@ -34,6 +38,14 @@ const col: MyColumn[] = [
 		align: 'left',
 		sortable: true,
 		classes: 'link',
+	},
+	{
+		name: 'created',
+		label: 'Создан',
+		field: 'created',
+		align: 'left',
+		sortable: true,
+		classes: 'text-no-wrap',
 	},
 	{
 		name: 'changed',

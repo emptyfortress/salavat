@@ -53,11 +53,11 @@ q-page(padding)
 			.last
 				.hd.cursor-pointer(@click="go1('Последние карточки')") Последние карточки
 				component(:is="LastCards")
-			//- .star
-			//- 	.hd.cursor-pointer(@click="go1('Избранное')")
-			//- 		q-icon(name="mdi-star" color="warning")
-			//- 		|Избранное
-			//- 	component(:is="Starred")
+			.star
+				.hd.cursor-pointer(@click="go1('Избранное')")
+					q-icon(name="mdi-star" color="warning")
+					|Избранное
+				component(:is="Starred")
 </template>
 
 <script setup lang="ts">
@@ -122,7 +122,7 @@ const go1 = (e: string) => {
 }
 .last {
 	margin-top: 1rem;
-	grid-column: 1/13;
+	grid-column: 1/7;
 	.hd {
 		cursor: pointer;
 		color: var(--q-link);
